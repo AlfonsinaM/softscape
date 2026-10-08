@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mi Nube · Nimbloom</title>
+
+  <!-- Tipografías Nimbloom -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       BOTÓN VOLVER A LA HOME
+  ====================================================== -->
+
+  <a href="../index.html" class="volver-home">
+    ← Volver al universo
+  </a>
+
+
+  <!-- =====================================================
+       CIELO GENERAL
+  ====================================================== -->
+
+  <div class="sky" id="sky">
+
+    <div class="sun-glow"></div>
+
+    <div class="sky-line"></div>
+
+    <div class="cloud cloud-1 pink"></div>
+    <div class="cloud cloud-2 blue"></div>
+    <div class="cloud cloud-3 yellow"></div>
+    <div class="cloud cloud-4 lavender"></div>
+    <div class="cloud cloud-5 green"></div>
+    <div class="cloud cloud-6 peach"></div>
+    <div class="cloud cloud-7 white"></div>
+    <div class="cloud cloud-8 pink"></div>
+
+    <div class="stars">
+      <span>✦</span>
+      <span>·</span>
+      <span>✧</span>
+      <span>·</span>
+      <span>✦</span>
+      <span>·</span>
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HOME
+  ====================================================== -->
+
+  <section class="screen active" id="home">
+
+    <div class="home-content">
+
+      <p class="eyebrow">
+        UN PEQUEÑO ESPACIO PARA VOS
+      </p>
+
+      <h1>
+        ¿Qué querés<br>
+        <span>dejar volar?</span>
+      </h1>
+
+      <p class="intro">
+        Creá una nube a partir de lo que sentís.
+      </p>
+
+      <button class="main-button" onclick="startExperience()">
+        Personalizá la tuya
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       EXPERIENCIA
+  ====================================================== -->
+
+  <main class="experience" id="experience">
+
+
+    <!-- ===================================================
+         01 - FORMA
+    ==================================================== -->
+
+    <section class="step" id="step-form">
+
+      <div class="step-info">
+
+        <span class="step-number">
+          01 / 04
+        </span>
+
+        <h2>
+          Empecemos por<br>
+          <span>su forma.</span>
+        </h2>
+
+        <p>
+          Elegí la forma que más se parezca
+          a lo que querés llevar con vos.
+        </p>
+
+      </div>
+
+
+      <div class="preview-area">
+
+        <div
+          class="preview-cloud shape-soft"
+          id="previewCloud">
+
+          <div class="cloud-highlight"></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="options">
+
+        <button class="option selected" data-shape="soft">
+
+          <span class="mini-cloud soft"></span>
+
+          <strong>Suave</strong>
+
+          <small>
+            redondita y esponjosa
+          </small>
+
+        </button>
+
+
+        <button class="option" data-shape="light">
+
+          <span class="mini-cloud light"></span>
+
+          <strong>Liviana</strong>
+
+          <small>
+            alargada y ligera
+          </small>
+
+        </button>
+
+
+        <button class="option" data-shape="hug">
+
+          <span class="mini-cloud hug"></span>
+
+          <strong>Caricia</strong>
+
+          <small>
+            grande y envolvente
+          </small>
+
+        </button>
+
+
+        <button class="option" data-shape="small">
+
+          <span class="mini-cloud small"></span>
+
+          <strong>Pequeña</strong>
+
+          <small>
+            compacta y delicada
+          </small>
+
+        </button>
+
+      </div>
+
+
+      <button
+        class="next-button"
+        onclick="nextStep(2)">
+
+        Continuar →
+
+      </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         02 - COLOR
+    ==================================================== -->
+
+    <section class="step" id="step-color">
+
+      <div class="step-info">
+
+        <span class="step-number">
+          02 / 04
+        </span>
+
+        <h2>
+          ¿Cómo te<br>
+          <span>sentís hoy?</span>
+        </h2>
+
+        <p>
+          Elegí el color de la emoción
+          que querés guardar en tu nube.
+        </p>
+
+      </div>
+
+
+      <div class="preview-area">
+
+        <div
+          class="preview-cloud"
+          id="colorCloud">
+
+          <div class="cloud-highlight"></div>
+
+        </div>
+
+        <div
+          class="emotion-name"
+          id="emotionName">
+
+          Paz
+
+        </div>
+
+      </div>
+
+
+      <div class="color-options">
+
+        <button
+          class="emotion selected"
+          data-color="lavender"
+          data-name="Paz">
+
+          <span></span>
+
+          <strong>Paz</strong>
+
+          <small>lavanda</small>
+
+        </button>
+
+
+        <button
+          class="emotion"
+          data-color="lilac"
+          data-name="Cariño">
+
+          <span></span>
+
+          <strong>Cariño</strong>
+
+          <small>lila</small>
+
+        </button>
+
+
+        <button
+          class="emotion"
+          data-color="yellow"
+          data-name="Radiante">
+
+          <span></span>
+
+          <strong>Radiante</strong>
+
+          <small>amarillo</small>
+
+        </button>
+
+
+        <button
+          class="emotion"
+          data-color="white"
+          data-name="Nostalgico">
+
+          <span></span>
+
+          <strong>Nostalgico</strong>
+
+          <small>luminosidad</small>
+
+        </button>
+
+
+        <button
+          class="emotion"
+          data-color="violet"
+          data-name="Esperanza">
+
+          <span></span>
+
+          <strong>Esperanza</strong>
+
+          <small>violeta</small>
+
+        </button>
+
+
+        <button
+          class="emotion"
+          data-color="accent"
+          data-name="Vitalidad">
+
+          <span></span>
+
+          <strong>Vitalidad</strong>
+
+          <small>acento</small>
+
+        </button>
+
+      </div>
+
+
+      <button
+        class="next-button"
+        onclick="nextStep(3)">
+
+        Este es mi color →
+
+      </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         03 - AROMA
+    ==================================================== -->
+
+    <section class="step" id="step-scent">
+
+      <div class="step-info">
+
+        <span class="step-number">
+          03 / 04
+        </span>
+
+        <h2>
+          ¿A qué querés<br>
+          <span>que huela?</span>
+        </h2>
+
+        <p>
+          Elegí un aroma para acompañar
+          a tu nube.
+        </p>
+
+      </div>
+
+
+      <div class="preview-area">
+
+        <div
+          class="preview-cloud"
+          id="scentCloud">
+
+          <div class="cloud-highlight"></div>
+
+          <div
+            class="scent-particles"
+            id="scentParticles">
+          </div>
+
+        </div>
+
+        <div
+          class="scent-name"
+          id="scentName">
+
+          Lavanda
+
+        </div>
+
+      </div>
+
+
+      <div class="scent-options">
+
+        <button
+          class="scent selected"
+          data-scent="lavender">
+
+          <span>✿</span>
+          <strong>Lavanda</strong>
+
+        </button>
+
+
+        <button
+          class="scent"
+          data-scent="rain">
+
+          <span>˚</span>
+          <strong>Lluvia</strong>
+
+        </button>
+
+
+        <button
+          class="scent"
+          data-scent="flowers">
+
+          <span>✾</span>
+          <strong>Flores</strong>
+
+        </button>
+
+
+        <button
+          class="scent"
+          data-scent="vanilla">
+
+          <span>·</span>
+          <strong>Vainilla</strong>
+
+        </button>
+
+
+        <button
+          class="scent"
+          data-scent="forest">
+
+          <span>⌁</span>
+          <strong>Bosque</strong>
+
+        </button>
+
+
+        <button
+          class="scent"
+          data-scent="citrus">
+
+          <span>○</span>
+          <strong>Cítrico</strong>
+
+        </button>
+
+      </div>
+
+
+      <button
+        class="next-button"
+        onclick="nextStep(4)">
+
+        Continuar →
+
+      </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         04 - DETALLE
+    ==================================================== -->
+
+    <section class="step" id="step-detail">
+
+      <div class="step-info">
+
+        <span class="step-number">
+          04 / 04
+        </span>
+
+        <h2>
+          Un último<br>
+          <span>detalle.</span>
+        </h2>
+
+        <p>
+          Elegí algo pequeño para hacerla
+          completamente tuya.
+        </p>
+
+      </div>
+
+
+      <div class="preview-area">
+
+        <div
+          class="preview-cloud"
+          id="detailCloud">
+
+          <div class="cloud-highlight"></div>
+
+          <div
+            class="detail-particles"
+            id="detailParticles">
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="detail-options">
+
+        <button
+          class="detail selected"
+          data-detail="bright">
+
+          <span>✦</span>
+
+          <strong>Softscape</strong>
+
+          <small>
+            pequeños destellos
+          </small>
+
+        </button>
+
+
+        <button
+          class="detail"
+          data-detail="moon">
+
+          <span>☾</span>
+
+          <strong>Nocturna</strong>
+
+          <small>
+            una pequeña luna
+          </small>
+
+        </button>
+
+
+        <button
+          class="detail"
+          data-detail="rainbow">
+
+          <span>◌</span>
+
+          <strong>Iridiscente</strong>
+
+          <small>
+            cambia suavemente
+          </small>
+
+        </button>
+
+
+        <button
+          class="detail"
+          data-detail="simple">
+
+          <span>○</span>
+
+          <strong>Simple</strong>
+
+          <small>
+            sin detalles
+          </small>
+
+        </button>
+
+      </div>
+
+
+      <button
+        class="next-button"
+        onclick="finishCustomization()">
+
+        Terminar mi nube →
+
+      </button>
+
+    </section>
+
+
+    <!-- ===================================================
+         VISTA FINAL
+    ==================================================== -->
+
+    <section
+      class="step final-preview"
+      id="final-preview">
+
+      <div class="finished-cloud-area">
+
+        <div
+          class="preview-cloud finished"
+          id="finishedCloud">
+
+          <div class="cloud-highlight"></div>
+
+          <div id="finishedParticles"></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="finished-text">
+
+        <p class="eyebrow">
+          TU CREACIÓN
+        </p>
+
+        <h2>
+          Esta es<br>
+          <span>tu nube.</span>
+        </h2>
+
+        <p>
+          Una pequeña parte de vos,
+          lista para dejar volar.
+        </p>
+
+        <button
+          class="main-button"
+          onclick="releaseCloud()">
+
+          Elevar mi nube
+          <span>↑</span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       ESCENA FINAL / CIELO
+  ====================================================== -->
+
+  <section
+    class="release-screen"
+    id="releaseScreen">
+
+    <div class="release-sky">
+
+
+      <!-- NUBES -->
+
+      <div class="sky-clouds-final">
+
+        <img
+          src="img/nube.png"
+          class="sky-nube sky-nube-1"
+          alt="Nube">
+
+        <img
+          src="img/nube.png"
+          class="sky-nube sky-nube-2"
+          alt="Nube">
+
+        <img
+          src="img/nube.png"
+          class="sky-nube sky-nube-3"
+          alt="Nube">
+
+        <img
+          src="img/nube.png"
+          class="sky-nube sky-nube-4"
+          alt="Nube">
+
+        <img
+          src="img/nube.png"
+          class="sky-nube sky-nube-5"
+          alt="Nube">
+
+      </div>
+
+
+      <!-- ESTRELLAS -->
+
+      <div class="final-stars">
+
+        <span>✦</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+
+      </div>
+
+
+      <!-- NUBE PERSONALIZADA -->
+
+      <div
+        class="flying-cloud"
+        id="flyingCloud">
+
+        <img
+          src="img/nube.png"
+          class="nube-imagen"
+          id="nubeImagen"
+          alt="Tu nube personalizada">
+
+        <div id="flyingParticles"></div>
+
+      </div>
+
+
+      <!-- MANOS -->
+
+      <div
+        class="hands"
+        id="hands">
+
+        <div class="hand-left"></div>
+
+        <div class="hand-right"></div>
+
+      </div>
+
+
+      <!-- MENSAJE DEL ABRAZO -->
+
+      <div
+        class="hug-message"
+        id="hugMessage">
+
+        <p>
+          Un último abrazo antes de dejarla volar.
+        </p>
+
+      </div>
+
+
+      <!-- MENSAJE DURANTE LA SUBIDA -->
+
+      <div
+        class="release-message"
+        id="releaseMessage">
+
+        <p>
+          Lo que sentís también puede transformarse.
+        </p>
+
+      </div>
+
+
+      <!-- MENSAJE FINAL -->
+
+      <div
+        class="final-message"
+        id="finalMessage">
+
+        <p class="eyebrow">
+          AHORA
+        </p>
+
+        <h2>
+          También forma<br>
+          <span>parte del cielo.</span>
+        </h2>
+
+        <p class="final-subtitle">
+          Tu nube se encuentra con las demás.
+        </p>
+
+        <button
+          class="main-button"
+          onclick="restart()">
+
+          Crear otra nube
+          <span>↻</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

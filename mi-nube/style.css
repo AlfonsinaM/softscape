@@ -1,0 +1,2317 @@
+
+:root {
+
+  /* PALETA OFICIAL NIMBLOOM */
+
+  --violet: #A558CC;
+  --lavender: #C2C2F4;
+  --lilac: #D9AAF1;
+  --white: #FDF7FF;
+  --yellow: #FFFEAE;
+
+  /* COLORES DE TEXTO */
+
+  --text: #51465B;
+  --text-soft: #756A80;
+
+  /* SOMBRAS */
+
+  --shadow-soft: rgba(91, 65, 112, 0.13);
+  --shadow-medium: rgba(91, 65, 112, 0.20);
+
+  --transition: 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+
+  font-family: "Quicksand", sans-serif;
+
+  color: var(--text);
+
+  overflow: hidden;
+
+  background: var(--lavender);
+}
+
+
+/* =========================================================
+   CIELO
+========================================================= */
+
+.sky,
+.release-sky {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--lavender) 0%,
+      var(--lilac) 100%
+    );
+}
+
+
+.sun-glow {
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -250px;
+  right: -100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 254, 174, .50) 0%,
+      rgba(255, 254, 174, .18) 35%,
+      transparent 70%
+    );
+
+  border-radius: 50%;
+
+  filter: blur(25px);
+}
+
+
+/* =========================================================
+   NUBES DEL CIELO
+========================================================= */
+
+.cloud {
+
+  position: absolute;
+
+  width: 150px;
+  height: 55px;
+
+  border-radius: 100px;
+
+  opacity: .55;
+
+  filter: blur(.2px);
+
+  animation:
+    floatCloud 18s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+
+  content: "";
+
+  position: absolute;
+
+  background: inherit;
+
+  border-radius: 50%;
+}
+
+.cloud::before {
+
+  width: 70px;
+  height: 70px;
+
+  left: 25px;
+  bottom: 20px;
+}
+
+.cloud::after {
+
+  width: 90px;
+  height: 90px;
+
+  right: 20px;
+  bottom: 10px;
+}
+
+
+/* COLORES BASADOS EN LA MARCA */
+
+.cloud.pink {
+  background: var(--lilac);
+}
+
+.cloud.blue {
+  background: var(--lavender);
+}
+
+.cloud.yellow {
+  background: var(--yellow);
+}
+
+.cloud.lavender {
+  background: var(--lavender);
+}
+
+.cloud.green {
+  background: var(--lilac);
+}
+
+.cloud.peach {
+  background: var(--white);
+}
+
+.cloud.white {
+  background: rgba(253, 247, 255, .85);
+}
+
+
+/* =========================================================
+   POSICIONES
+========================================================= */
+
+.cloud-1 {
+  top: 12%;
+  left: 5%;
+  transform: scale(.8);
+}
+
+.cloud-2 {
+  top: 25%;
+  right: 8%;
+  transform: scale(1.1);
+  animation-delay: -5s;
+}
+
+.cloud-3 {
+  top: 65%;
+  left: 10%;
+  transform: scale(.7);
+  animation-delay: -8s;
+}
+
+.cloud-4 {
+  top: 75%;
+  right: 15%;
+  transform: scale(.9);
+  animation-delay: -3s;
+}
+
+.cloud-5 {
+  top: 45%;
+  left: 45%;
+  transform: scale(.65);
+  animation-delay: -11s;
+}
+
+.cloud-6 {
+  top: 10%;
+  right: 35%;
+  transform: scale(.6);
+  animation-delay: -7s;
+}
+
+.cloud-7 {
+  top: 82%;
+  left: 48%;
+  transform: scale(.55);
+  animation-delay: -4s;
+}
+
+.cloud-8 {
+  top: 52%;
+  right: 3%;
+  transform: scale(.6);
+  animation-delay: -12s;
+}
+
+
+@keyframes floatCloud {
+
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -18px;
+  }
+}
+
+
+/* =========================================================
+   ESTRELLAS
+========================================================= */
+
+.stars {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  color: rgba(253, 247, 255, .70);
+
+  font-size: 18px;
+}
+
+.stars span {
+
+  position: absolute;
+
+  animation:
+    twinkle 4s ease-in-out infinite;
+}
+
+
+.stars span:nth-child(1) {
+  top: 20%;
+  left: 35%;
+}
+
+.stars span:nth-child(2) {
+  top: 35%;
+  left: 15%;
+}
+
+.stars span:nth-child(3) {
+  top: 70%;
+  left: 35%;
+}
+
+.stars span:nth-child(4) {
+  top: 15%;
+  right: 25%;
+}
+
+.stars span:nth-child(5) {
+  bottom: 20%;
+  right: 35%;
+}
+
+.stars span:nth-child(6) {
+  top: 60%;
+  right: 20%;
+}
+
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .3;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+
+/* =========================================================
+   PANTALLAS
+========================================================= */
+
+.screen,
+.step {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease,
+    visibility .8s ease;
+
+  z-index: 10;
+}
+
+
+.screen.active,
+.step.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform: translateY(0);
+
+  z-index: 20;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home-content {
+
+  width: 100%;
+  max-width: 800px;
+
+  margin: auto;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+
+/* Texto pequeño */
+
+.eyebrow {
+
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: var(--violet);
+
+  margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   TÍTULOS
+   CHERRY BOMB → SOLO TÍTULOS
+========================================================= */
+
+h1,
+h2 {
+
+  font-family: "Cherry Bomb One", cursive;
+
+  font-weight: 400;
+
+  color: var(--text);
+
+  letter-spacing: 0;
+}
+
+
+/* Título principal */
+
+h1 {
+
+  font-size: clamp(55px, 8vw, 105px);
+
+  line-height: .95;
+}
+
+
+/* Palabra destacada */
+
+h1 span,
+h2 span {
+
+  color: var(--violet);
+}
+
+
+.intro {
+
+  margin-top: 30px;
+
+  font-size: 18px;
+
+  font-weight: 500;
+
+  color: var(--text-soft);
+
+  opacity: .9;
+}
+
+
+/* =========================================================
+   BOTONES
+   QUICKSAND BOLD
+========================================================= */
+
+.main-button,
+.next-button {
+
+  border: none;
+
+  font-family: "Quicksand", sans-serif;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .3s ease;
+}
+
+
+/* BOTÓN PRINCIPAL */
+
+.main-button {
+
+  margin-top: 35px;
+
+  padding: 16px 28px;
+
+  border-radius: 100px;
+
+  background: var(--violet);
+
+  color: var(--white);
+
+  font-size: 15px;
+
+  box-shadow:
+    0 10px 30px var(--shadow-soft);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+
+.main-button span {
+
+  display: inline-block;
+
+  margin-left: 12px;
+
+  transition: .3s;
+}
+
+
+.main-button:hover {
+
+  transform: translateY(-3px);
+
+  background: #9145B9;
+
+  box-shadow:
+    0 15px 35px var(--shadow-medium);
+}
+
+
+.main-button:hover span {
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   EXPERIENCIA
+========================================================= */
+
+.experience {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+========================================================= */
+
+.step-info {
+
+  position: absolute;
+
+  left: 8%;
+  top: 15%;
+
+  width: 300px;
+
+  z-index: 5;
+}
+
+
+.step-number {
+
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: var(--violet);
+
+  margin-bottom: 25px;
+
+  opacity: .8;
+}
+
+
+h2 {
+
+  font-size: clamp(40px, 5vw, 68px);
+
+  line-height: .95;
+}
+
+
+.step-info p {
+
+  margin-top: 25px;
+
+  line-height: 1.7;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  color: var(--text-soft);
+
+  max-width: 280px;
+
+  opacity: .9;
+}
+
+
+/* =========================================================
+   PREVIEW CLOUD
+========================================================= */
+
+.preview-area {
+
+  position: absolute;
+
+  left: 50%;
+  top: 46%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.preview-cloud {
+
+  position: relative;
+
+  width: 280px;
+  height: 110px;
+
+  border-radius: 100px;
+
+  background: var(--white);
+
+  filter:
+    drop-shadow(
+      0 20px 35px var(--shadow-soft)
+    );
+
+  transition:
+    width .7s ease,
+    height .7s ease,
+    background .7s ease,
+    transform .7s ease;
+
+  animation:
+    cloudBreath 5s ease-in-out infinite;
+}
+
+
+.preview-cloud::before,
+.preview-cloud::after {
+
+  content: "";
+
+  position: absolute;
+
+  background: inherit;
+
+  border-radius: 50%;
+}
+
+
+.preview-cloud::before {
+
+  width: 145px;
+  height: 145px;
+
+  left: 35px;
+  bottom: 35px;
+}
+
+
+.preview-cloud::after {
+
+  width: 170px;
+  height: 170px;
+
+  right: 20px;
+  bottom: 10px;
+}
+
+
+.cloud-highlight {
+
+  position: absolute;
+
+  width: 90px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: rgba(253, 247, 255, .45);
+
+  left: 55px;
+  top: 22px;
+
+  z-index: 5;
+}
+
+
+@keyframes cloudBreath {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   FORMAS
+========================================================= */
+
+.preview-cloud.shape-soft {
+
+  width: 280px;
+  height: 110px;
+}
+
+
+.preview-cloud.shape-light {
+
+  width: 320px;
+  height: 85px;
+
+  transform: scaleY(.9);
+}
+
+
+.preview-cloud.shape-hug {
+
+  width: 330px;
+  height: 145px;
+
+  transform: scale(1.1);
+}
+
+
+.preview-cloud.shape-small {
+
+  width: 210px;
+  height: 80px;
+
+  transform: scale(.85);
+}
+
+
+/* =========================================================
+   OPCIONES
+========================================================= */
+
+.options {
+
+  position: absolute;
+
+  right: 7%;
+  top: 15%;
+
+  width: 260px;
+
+  display: grid;
+
+  gap: 10px;
+}
+
+
+.option {
+
+  border: 1px solid rgba(165, 88, 204, .18);
+
+  background: rgba(253, 247, 255, .35);
+
+  backdrop-filter: blur(10px);
+
+  padding: 13px;
+
+  border-radius: 20px;
+
+  text-align: left;
+
+  font-family: "Quicksand", sans-serif;
+
+  cursor: pointer;
+
+  color: var(--text);
+
+  transition: .3s ease;
+}
+
+
+.option:hover,
+.option.selected {
+
+  background: rgba(253, 247, 255, .82);
+
+  transform: translateX(-5px);
+
+  border-color: var(--violet);
+
+  box-shadow:
+    0 8px 20px var(--shadow-soft);
+}
+
+
+.option strong {
+
+  display: block;
+
+  margin-left: 50px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.option small {
+
+  display: block;
+
+  margin-left: 50px;
+
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   MINI NUBES
+========================================================= */
+
+.mini-cloud {
+
+  float: left;
+
+  width: 38px;
+  height: 16px;
+
+  margin-top: 7px;
+
+  background: var(--white);
+
+  border-radius: 30px;
+
+  position: relative;
+
+  box-shadow:
+    0 4px 10px var(--shadow-soft);
+}
+
+
+.mini-cloud::before,
+.mini-cloud::after {
+
+  content: "";
+
+  position: absolute;
+
+  background: inherit;
+
+  border-radius: 50%;
+}
+
+
+.mini-cloud::before {
+
+  width: 23px;
+  height: 23px;
+
+  bottom: 5px;
+  left: 6px;
+}
+
+
+.mini-cloud::after {
+
+  width: 27px;
+  height: 27px;
+
+  bottom: 3px;
+  right: 3px;
+}
+
+
+.mini-cloud.light {
+  transform: scaleX(1.25);
+}
+
+.mini-cloud.hug {
+  transform: scale(1.3);
+}
+
+.mini-cloud.small {
+  transform: scale(.7);
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+.next-button {
+
+  position: absolute;
+
+  right: 8%;
+  bottom: 8%;
+
+  padding: 15px 24px;
+
+  border-radius: 100px;
+
+  background: var(--violet);
+
+  color: var(--white);
+
+  font-size: 14px;
+
+  box-shadow:
+    0 12px 25px var(--shadow-soft);
+}
+
+
+.next-button:hover {
+
+  transform: translateY(-3px);
+
+  background: #9145B9;
+}
+
+
+/* =========================================================
+   COLORES
+========================================================= */
+
+.color-options {
+
+  position: absolute;
+
+  right: 7%;
+  top: 14%;
+
+  width: 300px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+
+.emotion {
+
+  border: 1px solid rgba(165, 88, 204, .18);
+
+  background: rgba(253, 247, 255, .35);
+
+  border-radius: 20px;
+
+  padding: 15px 10px;
+
+  font-family: "Quicksand", sans-serif;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: .3s;
+}
+
+
+.emotion span {
+
+  display: block;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  margin-bottom: 9px;
+
+  border: 2px solid rgba(253, 247, 255, .8);
+}
+
+
+.emotion strong {
+
+  display: block;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.emotion small {
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  color: var(--text-soft);
+}
+
+
+.emotion:hover,
+.emotion.selected {
+
+  background: rgba(253, 247, 255, .82);
+
+  transform: translateY(-3px);
+
+  border-color: var(--violet);
+}
+
+
+/* =========================================================
+   DOTS DE EMOCIONES
+   TODOS DENTRO DEL UNIVERSO CROMÁTICO NIMBLOOM
+========================================================= */
+
+.emotion[data-color="lavender"] span {
+  background: var(--lavender);
+}
+
+.emotion[data-color="lilac"] span {
+  background: var(--lilac);
+}
+
+.emotion[data-color="yellow"] span {
+  background: var(--yellow);
+}
+
+.emotion[data-color="white"] span {
+  background: var(--white);
+  border-color: var(--lavender);
+}
+
+.emotion[data-color="violet"] span {
+  background: var(--violet);
+}
+
+.emotion[data-color="accent"] span {
+  background: var(--yellow);
+}
+
+
+/* =========================================================
+   CLOUD COLORS
+========================================================= */
+
+.preview-cloud.lavender {
+  background: var(--lavender);
+}
+
+.preview-cloud.lilac {
+  background: var(--lilac);
+}
+
+.preview-cloud.yellow {
+  background: var(--yellow);
+}
+
+.preview-cloud.white {
+  background: var(--white);
+}
+
+.preview-cloud.violet {
+  background: var(--violet);
+}
+
+.preview-cloud.accent {
+  background: var(--yellow);
+}
+
+
+/* =========================================================
+   NOMBRE EMOCIÓN
+========================================================= */
+
+.emotion-name,
+.scent-name {
+
+  margin-top: 45px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: var(--violet);
+
+  opacity: .85;
+}
+
+
+/* =========================================================
+   AROMAS
+========================================================= */
+
+.scent-options {
+
+  position: absolute;
+
+  right: 7%;
+  top: 15%;
+
+  width: 270px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+
+.scent {
+
+  border: 1px solid rgba(165, 88, 204, .18);
+
+  background: rgba(253, 247, 255, .35);
+
+  padding: 15px;
+
+  border-radius: 20px;
+
+  font-family: "Quicksand", sans-serif;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: .3s;
+}
+
+
+.scent span {
+
+  font-size: 20px;
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--violet);
+}
+
+
+.scent strong {
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.scent:hover,
+.scent.selected {
+
+  background: rgba(253, 247, 255, .82);
+
+  transform: translateY(-3px);
+
+  border-color: var(--violet);
+}
+
+
+/* =========================================================
+   PARTÍCULAS AROMA
+========================================================= */
+
+.scent-particles span {
+
+  position: absolute;
+
+  font-size: 15px;
+
+  color: var(--violet);
+
+  animation:
+    scentFloat 3s ease-in-out infinite;
+
+  z-index: 10;
+}
+
+
+.scent-particles span:nth-child(1) {
+
+  left: 20%;
+  top: -35px;
+}
+
+
+.scent-particles span:nth-child(2) {
+
+  left: 50%;
+  top: -55px;
+
+  animation-delay: -1s;
+}
+
+
+.scent-particles span:nth-child(3) {
+
+  right: 10%;
+  top: -20px;
+
+  animation-delay: -2s;
+}
+
+
+@keyframes scentFloat {
+
+  0%,
+  100% {
+
+    transform: translateY(0);
+
+    opacity: .4;
+  }
+
+  50% {
+
+    transform: translateY(-15px);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   DETALLES
+========================================================= */
+
+.detail-options {
+
+  position: absolute;
+
+  right: 7%;
+  top: 15%;
+
+  width: 290px;
+
+  display: grid;
+
+  gap: 10px;
+}
+
+
+.detail {
+
+  border: 1px solid rgba(165, 88, 204, .18);
+
+  background: rgba(253, 247, 255, .35);
+
+  padding: 14px;
+
+  border-radius: 20px;
+
+  text-align: left;
+
+  font-family: "Quicksand", sans-serif;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+
+.detail span {
+
+  display: inline-block;
+
+  font-size: 25px;
+
+  width: 45px;
+
+  vertical-align: middle;
+
+  color: var(--violet);
+}
+
+
+.detail strong {
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.detail small {
+
+  display: block;
+
+  margin-left: 49px;
+
+  color: var(--text-soft);
+
+  opacity: .8;
+}
+
+
+.detail:hover,
+.detail.selected {
+
+  background: rgba(253, 247, 255, .82);
+
+  transform: translateX(-5px);
+
+  border-color: var(--violet);
+}
+
+
+/* =========================================================
+   FINAL PREVIEW
+========================================================= */
+
+.final-preview {
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.finished-cloud-area {
+
+  margin-top: -50px;
+}
+
+
+.preview-cloud.finished {
+
+  width: 320px;
+  height: 125px;
+
+  transform: scale(1.15);
+}
+
+
+.finished-text {
+
+  text-align: center;
+
+  margin-top: 80px;
+}
+
+
+.finished-text h2 {
+
+  font-size: 65px;
+}
+
+
+.finished-text p:not(.eyebrow) {
+
+  margin-top: 20px;
+
+  color: var(--text-soft);
+
+  opacity: .8;
+}
+
+
+/* =========================================================
+   DESTELLOS
+========================================================= */
+
+.sparkle {
+
+  position: absolute;
+
+  color: var(--yellow);
+
+  font-size: 20px;
+
+  z-index: 20;
+
+  animation:
+    sparkle 2s ease-in-out infinite;
+}
+
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+
+    opacity: .3;
+
+    transform:
+      scale(.7)
+      rotate(0);
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.2)
+      rotate(15deg);
+  }
+}
+
+
+/* =========================================================
+   PANTALLA DE LIBERACIÓN
+========================================================= */
+
+.release-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  opacity: 0;
+
+  z-index: 100;
+
+  transition:
+    opacity 1s ease;
+}
+
+
+.release-screen.active {
+
+  display: block;
+
+  opacity: 1;
+}
+
+
+.release-sky {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--lavender) 0%,
+      var(--lilac) 65%,
+      var(--white) 100%
+    );
+}
+
+
+/* =========================================================
+   NUBES DEL CIELO FINAL
+========================================================= */
+
+.sky-clouds-final {
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  transition:
+    opacity 2s ease;
+
+  z-index: 5;
+}
+
+
+.release-screen.active .sky-clouds-final {
+
+  opacity: 1;
+}
+
+
+.sky-nube {
+
+  position: absolute;
+
+  width: 180px;
+
+  height: auto;
+
+  object-fit: contain;
+
+  opacity: .55;
+
+  filter:
+    blur(.2px)
+    drop-shadow(
+      0 15px 25px var(--shadow-soft)
+    );
+
+  animation:
+    skyFloat 9s ease-in-out infinite;
+}
+
+
+.sky-nube-1 {
+  left: 7%;
+  top: 15%;
+  width: 170px;
+}
+
+.sky-nube-2 {
+  right: 7%;
+  top: 23%;
+  width: 220px;
+  animation-delay: -3s;
+}
+
+.sky-nube-3 {
+  left: 18%;
+  top: 55%;
+  width: 140px;
+  opacity: .4;
+  animation-delay: -6s;
+}
+
+.sky-nube-4 {
+  right: 20%;
+  top: 62%;
+  width: 190px;
+  opacity: .45;
+  animation-delay: -2s;
+}
+
+.sky-nube-5 {
+  left: 45%;
+  top: 10%;
+  width: 125px;
+  opacity: .35;
+  animation-delay: -5s;
+}
+
+
+@keyframes skyFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0)
+      translateX(0);
+  }
+
+  50% {
+
+    transform:
+      translateY(-15px)
+      translateX(10px);
+  }
+}
+
+
+/* =========================================================
+   ESTRELLAS
+========================================================= */
+
+.final-stars {
+
+  position: absolute;
+
+  inset: 0;
+
+  color: rgba(253, 247, 255, .75);
+
+  z-index: 4;
+}
+
+
+.final-stars span {
+
+  position: absolute;
+
+  animation:
+    twinkle 4s ease-in-out infinite;
+}
+
+
+.final-stars span:nth-child(1) {
+  top: 18%;
+  left: 30%;
+}
+
+.final-stars span:nth-child(2) {
+  top: 32%;
+  right: 30%;
+}
+
+.final-stars span:nth-child(3) {
+  top: 52%;
+  left: 42%;
+}
+
+.final-stars span:nth-child(4) {
+  top: 72%;
+  right: 35%;
+}
+
+.final-stars span:nth-child(5) {
+  top: 42%;
+  left: 10%;
+}
+
+.final-stars span:nth-child(6) {
+  top: 20%;
+  right: 12%;
+}
+
+
+/* =========================================================
+   NUBE PERSONALIZADA VOLADORA
+========================================================= */
+
+.flying-cloud {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 37%;
+
+  width: 320px;
+
+  z-index: 30;
+
+  transform:
+    translateX(-50%)
+    scale(1);
+
+  transition:
+    bottom 5s cubic-bezier(.2,.7,.2,1),
+    transform 5s cubic-bezier(.2,.7,.2,1);
+}
+
+
+.nube-imagen {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 20px 35px var(--shadow-soft)
+    );
+
+  animation:
+    floatingPersonalCloud 4s ease-in-out infinite;
+}
+
+
+@keyframes floatingPersonalCloud {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   PARTICULAS
+========================================================= */
+
+#flyingParticles {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 35;
+}
+
+
+/* =========================================================
+   MANOS
+========================================================= */
+
+.hands {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -20px;
+
+  width: 560px;
+
+  height: 430px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 90;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity .8s ease;
+}
+
+
+/* =========================================================
+   MANO IZQUIERDA
+========================================================= */
+
+.hand-left {
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 135px;
+
+  height: 250px;
+
+  background: #E8C7D4;
+
+  border-radius:
+    70px
+    60px
+    45px
+    80px;
+
+  transform:
+    translate(-40px, 190px)
+    rotate(-28deg);
+
+  transform-origin: bottom center;
+
+  box-shadow:
+    inset -8px -12px 18px rgba(160,90,120,.10),
+    0 15px 35px var(--shadow-soft);
+
+  transition:
+    transform 1.5s cubic-bezier(.2,.8,.2,1),
+    opacity .8s ease;
+}
+
+
+.hand-left::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+
+  height: 135px;
+
+  top: -82px;
+
+  right: -5px;
+
+  background: #E8C7D4;
+
+  border-radius: 40px;
+
+  transform: rotate(18deg);
+
+  box-shadow:
+    16px 15px 0 #E8C7D4,
+    31px 35px 0 #E8C7D4,
+    42px 57px 0 #E8C7D4;
+}
+
+
+/* =========================================================
+   MANO DERECHA
+========================================================= */
+
+.hand-right {
+
+  position: absolute;
+
+  right: 0;
+
+  bottom: 0;
+
+  width: 135px;
+
+  height: 250px;
+
+  background: #E8C7D4;
+
+  border-radius:
+    60px
+    70px
+    80px
+    45px;
+
+  transform:
+    translate(40px, 190px)
+    rotate(28deg);
+
+  transform-origin: bottom center;
+
+  box-shadow:
+    inset 8px -12px 18px rgba(160,90,120,.10),
+    0 15px 35px var(--shadow-soft);
+
+  transition:
+    transform 1.5s cubic-bezier(.2,.8,.2,1),
+    opacity .8s ease;
+}
+
+
+.hand-right::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+
+  height: 135px;
+
+  top: -82px;
+
+  left: -5px;
+
+  background: #E8C7D4;
+
+  border-radius: 40px;
+
+  transform: rotate(-18deg);
+
+  box-shadow:
+    -16px 15px 0 #E8C7D4,
+    -31px 35px 0 #E8C7D4,
+    -42px 57px 0 #E8C7D4;
+}
+
+
+/* =========================================================
+   APARECEN
+========================================================= */
+
+.hands.show {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ABRAZO
+========================================================= */
+
+.hands.hugging .hand-left {
+
+  transform:
+    translate(105px, -45px)
+    rotate(-10deg);
+}
+
+
+.hands.hugging .hand-right {
+
+  transform:
+    translate(-105px, -45px)
+    rotate(10deg);
+}
+
+
+/* =========================================================
+   NUBE DURANTE EL ABRAZO
+========================================================= */
+
+.flying-cloud.being-hugged {
+
+  animation:
+    cloudHug 1.2s ease-in-out infinite;
+}
+
+
+@keyframes cloudHug {
+
+  0% {
+    transform:
+      translateX(-50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      scale(.94);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   SOLTAR
+========================================================= */
+
+.hands.release .hand-left {
+
+  transform:
+    translate(-150px, 170px)
+    rotate(-38deg);
+
+  opacity: 0;
+}
+
+
+.hands.release .hand-right {
+
+  transform:
+    translate(150px, 170px)
+    rotate(38deg);
+
+  opacity: 0;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.hug-message {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 13%;
+
+  transform:
+    translateX(-50%)
+    translateY(10px);
+
+  width: 90%;
+
+  z-index: 100;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  letter-spacing: .5px;
+
+  color: var(--text);
+}
+
+
+.hug-message.show {
+
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+.release-message {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 14%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 100;
+
+  opacity: 0;
+
+  transition:
+    opacity 1s ease;
+
+  text-align: center;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  letter-spacing: .5px;
+
+  color: var(--text);
+}
+
+
+.release-message.show {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MENSAJE FINAL
+========================================================= */
+
+.final-message {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(30px);
+
+  z-index: 110;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+
+  pointer-events: none;
+}
+
+
+.final-message.show {
+
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0);
+
+  pointer-events: auto;
+}
+
+
+.final-message h2 {
+
+  font-size:
+    clamp(
+      45px,
+      6vw,
+      75px
+    );
+}
+
+
+.final-subtitle {
+
+  margin-top: 18px;
+
+  opacity: .75;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  body {
+    overflow: auto;
+  }
+
+  .step {
+
+    overflow-y: auto;
+
+    padding: 30px 20px;
+
+    flex-direction: column;
+  }
+
+  .step-info {
+
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 20px;
+  }
+
+  .step-info p {
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .preview-area {
+
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    transform: none;
+
+    margin: 60px auto;
+  }
+
+  .options,
+  .color-options,
+  .scent-options,
+  .detail-options {
+
+    position: relative;
+
+    right: auto;
+    top: auto;
+
+    width: 100%;
+
+    max-width: 420px;
+
+    margin: 20px auto;
+  }
+
+  .next-button {
+
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    margin: 30px auto 50px;
+
+    display: block;
+  }
+
+  .finished-text h2 {
+    font-size: 50px;
+  }
+
+  .hands {
+
+    width: 500px;
+
+    height: 390px;
+
+    transform:
+      translateX(-50%)
+      scale(.75);
+
+    transform-origin:
+      bottom center;
+  }
+
+  .flying-cloud {
+    width: 250px;
+  }
+
+  .sky-nube-3,
+  .sky-nube-4 {
+    opacity: .25;
+  }
+}
+
+
+/* =========================================================
+   Z-INDEX
+========================================================= */
+
+#home {
+  z-index: 20;
+}
+
+
+#experience {
+
+  position: relative;
+
+  z-index: 10;
+}
+
+
+.main-button {
+
+  position: relative;
+
+  z-index: 100;
+}
+/* =========================================
+   BOTÓN VOLVER AL UNIVERSO
+========================================= */
+
+.volver-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  z-index: 9999;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(253, 247, 255, 0.82);
+
+  color: #625473;
+
+  text-decoration: none;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 8px 25px rgba(98, 84, 115, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.volver-home:hover {
+  transform: translateY(-2px);
+
+  background: #FDF7FF;
+
+  box-shadow:
+    0 12px 30px rgba(98, 84, 115, 0.18);
+}
+
+
+/* En celular */
+
+@media (max-width: 600px) {
+
+  .volver-home {
+    top: 14px;
+    left: 14px;
+
+    padding: 8px 13px;
+
+    font-size: 12px;
+  }
+
+}

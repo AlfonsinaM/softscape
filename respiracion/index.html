@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Respirar una Nube · Nimbloom</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="breathing-screen">
+
+        <!-- AUDIO DE LA MEDITACIÓN -->
+        <audio id="meditationAudio" preload="auto">
+            <source src="audio/relax.mp3" type="audio/mpeg">
+            Tu navegador no puede reproducir este audio.
+        </audio>
+
+
+        <!-- VOLVER -->
+        <a href="../index.html" class="back-link">
+            ← Volver al universo
+        </a>
+
+
+        <!-- FONDO -->
+        <div class="background-glow"></div>
+
+        <div class="background-cloud cloud-left"></div>
+        <div class="background-cloud cloud-right"></div>
+
+        <div class="ambient-particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <!-- INTRO -->
+        <section class="screen intro-screen active" id="introScreen">
+
+            <div class="intro-content">
+
+                <p class="eyebrow">
+                    NIMBLOOM · UN PEQUEÑO MOMENTO
+                </p>
+
+                <h1>
+                    Respirar
+                    <span>una nube.</span>
+                </h1>
+
+                <p class="intro-text">
+                    Seguí el movimiento de la nube<br>
+                    y dejá que tu respiración encuentre su ritmo.
+                </p>
+
+                <button id="startButton" class="main-button">
+                    Comenzar →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPERIENCIA DE RESPIRACIÓN -->
+        <section class="screen breathing-experience" id="breathingExperience">
+
+            <div class="breathing-top">
+
+                <p class="eyebrow">
+                    RESPIRACIÓN
+                </p>
+
+                <div class="counter" id="counter">
+                    PREPARATE
+                </div>
+
+            </div>
+
+
+            <div class="breathing-content">
+
+                <div class="instructions">
+
+                    <h2 id="breathingText">
+                        Prepará tu respiración...
+                    </h2>
+
+                    <p id="breathingSubtext">
+                        Ponete cómodo y escuchá la voz.
+                    </p>
+
+                </div>
+
+
+                <!-- NUBE -->
+                <div class="cloud-container" id="cloudContainer">
+
+                    <div class="cloud-glow"></div>
+                    <div class="cloud-halo"></div>
+
+                    <img
+                        src="img/nube.png"
+                        alt="Nube de Nimbloom"
+                        class="breathing-cloud"
+                        id="breathingCloud"
+                    >
+
+                    <div class="cloud-particles" id="cloudParticles"></div>
+
+                </div>
+
+
+                <!-- PROGRESO -->
+                <div class="progress-area">
+
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            id="progressFill">
+                        </div>
+                    </div>
+
+                    <div class="progress-info">
+                        <span id="progressNumber">0%</span>
+                        <span>1:00</span>
+                    </div>
+
+                </div>
+
+
+                <p class="small-message" id="smallMessage">
+                    Escuchá y seguí el ritmo de la nube.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section class="screen final-screen" id="finalScreen">
+
+            <div class="final-content">
+
+                <div class="final-cloud-wrapper">
+
+                    <div class="final-cloud-glow"></div>
+
+                    <img
+                        src="img/nube.png"
+                        alt="Nube"
+                        class="final-cloud"
+                    >
+
+                </div>
+
+
+                <p class="eyebrow">
+                    UN MOMENTO PARA VOS
+                </p>
+
+                <h2>
+                    Ya estás más cerca.
+                    <span>Nimbloom te espera.</span>
+                </h2>
+
+                <p class="final-text">
+                    A veces no hace falta nada.<br>
+                    Solo respirar un momento.
+                </p>
+
+                <button id="restartButton" class="main-button">
+                    Respirar otra vez ↻
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+

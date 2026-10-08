@@ -1,0 +1,921 @@
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --lavanda: #C2C2F4;
+    --lavanda-clara: #D9AAF1;
+    --lila: #A558CC;
+    --blanco: #FDF7FF;
+    --amarillo: #FFFEAE;
+
+    --rosa: #F3C7D8;
+    --durazno: #F3D0BD;
+
+    --texto: #625473;
+    --texto-suave: #857697;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Quicksand", sans-serif;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.9),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #dcdafa 0%,
+            #eadcf5 42%,
+            #f7e8e6 75%,
+            #fff6e5 100%
+        );
+}
+
+
+/* =========================
+   NUBES DE FONDO
+========================= */
+
+.fondo-nubes {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.nube {
+    position: absolute;
+
+    opacity: 0.25;
+
+    filter: blur(1px);
+
+    animation: flotar 12s ease-in-out infinite;
+}
+
+.nube-1 {
+    width: 300px;
+    top: 8%;
+    left: -80px;
+}
+
+.nube-2 {
+    width: 260px;
+    top: 32%;
+    right: -80px;
+
+    animation-delay: -3s;
+}
+
+.nube-3 {
+    width: 220px;
+    top: 62%;
+    left: -70px;
+
+    animation-delay: -6s;
+}
+
+.nube-4 {
+    width: 320px;
+    bottom: -50px;
+    right: -100px;
+
+    animation-delay: -9s;
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(3deg);
+    }
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 80px 30px;
+
+    z-index: 1;
+}
+
+.hero-contenido {
+    width: min(900px, 100%);
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini-titulo {
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--lila);
+
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: clamp(60px, 9vw, 120px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    color: var(--lila);
+
+    text-shadow:
+        0 10px 30px rgba(165, 88, 204, 0.15);
+
+    margin-bottom: 35px;
+}
+
+.descripcion {
+    max-width: 520px;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: var(--texto-suave);
+
+    margin-bottom: 40px;
+}
+
+.boton-explorar {
+    border: none;
+
+    padding: 15px 27px;
+
+    border-radius: 999px;
+
+    background: var(--blanco);
+
+    color: var(--lila);
+
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 35px rgba(98, 84, 115, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.boton-explorar span {
+    margin-left: 8px;
+}
+
+.boton-explorar:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(98, 84, 115, 0.18);
+}
+
+
+/* =========================
+   FLECHA
+========================= */
+
+.flecha-scroll {
+    position: absolute;
+
+    bottom: 35px;
+
+    width: 25px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.flecha-scroll span {
+    width: 2px;
+    height: 30px;
+
+    background: var(--lila);
+
+    opacity: 0.4;
+
+    position: relative;
+}
+
+.flecha-scroll span::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: -4px;
+
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid var(--lila);
+    border-bottom: 2px solid var(--lila);
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================
+   PORTAL
+========================= */
+
+.portal {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 120px 7vw 150px;
+}
+
+.titulo-seccion {
+    max-width: 1100px;
+
+    margin: 0 auto 70px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.titulo-seccion > span {
+    font-size: 13px;
+
+    color: var(--lila);
+
+    font-weight: 700;
+
+    padding-top: 8px;
+}
+
+.titulo-seccion p {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    color: var(--texto-suave);
+
+    margin-bottom: 8px;
+}
+
+.titulo-seccion h2 {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    font-weight: 400;
+
+    color: var(--lila);
+}
+
+
+/* =========================
+   TERRITORIOS
+========================= */
+
+.territorios {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.territorio {
+    position: relative;
+
+    min-height: 320px;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    border-radius:
+        42% 58% 50% 50% /
+        48% 44% 56% 52%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+
+    box-shadow:
+        0 15px 38px rgba(98, 84, 115, 0.08);
+}
+
+
+/* =========================
+   FONDOS
+========================= */
+
+.territorio-1 {
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(255,255,255,0.8),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #dddafa,
+            #efdbf4
+        );
+}
+
+.territorio-2 {
+    background:
+        radial-gradient(
+            circle at 25% 25%,
+            rgba(255,255,255,0.8),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #d7d9f8,
+            #d8eef0
+        );
+}
+
+.territorio-3 {
+    background:
+        radial-gradient(
+            circle at 75% 15%,
+            rgba(255,255,255,0.75),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #ead9ee,
+            #f4d8d4
+        );
+}
+
+.territorio-4 {
+    background:
+        radial-gradient(
+            circle at 25% 20%,
+            rgba(255,255,255,0.8),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #d9d5f8,
+            #ead8f5
+        );
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.territorio:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 24px 48px rgba(98, 84, 115, 0.13);
+}
+
+
+/* =========================
+   NUMERO
+========================= */
+
+.numero {
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--lila);
+
+    opacity: 0.6;
+}
+
+
+/* =========================
+   NUBE DENTRO DE TARJETA
+========================= */
+
+.territorio-nube {
+    position: absolute;
+
+    top: 18px;
+    right: -35px;
+
+    width: 190px;
+
+    opacity: 0.58;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.territorio-nube img {
+    width: 100%;
+
+    display: block;
+}
+
+.territorio:hover .territorio-nube {
+    transform:
+        translate(-12px, -8px)
+        rotate(3deg);
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.territorio-texto {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 290px;
+}
+
+.categoria {
+    font-size: 9px;
+
+    letter-spacing: 1.6px;
+
+    font-weight: 700;
+
+    color: var(--lila);
+
+    margin-bottom: 6px;
+}
+
+.territorio h3 {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: var(--texto);
+
+    margin-bottom: 11px;
+}
+
+.territorio-texto > p:not(.categoria) {
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    color: var(--texto-suave);
+
+    margin-bottom: 17px;
+
+    max-width: 260px;
+}
+
+
+/* =========================
+   ENTRAR
+========================= */
+
+.entrar {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--lila);
+
+    transition: gap 0.3s ease;
+}
+
+.territorio:hover .entrar {
+    gap: 13px;
+}
+
+
+/* =========================
+   CIERRE
+========================= */
+
+.cierre {
+    min-height: 75vh;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    overflow: hidden;
+}
+
+.cierre-nube {
+    width: 350px;
+
+    opacity: 0.4;
+
+    margin-bottom: -40px;
+
+    animation: flotar 8s ease-in-out infinite;
+}
+
+.cierre-nube img {
+    width: 100%;
+}
+
+.cierre > p {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    color: var(--lila);
+
+    margin-bottom: 15px;
+}
+
+.cierre h2 {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-weight: 400;
+
+    font-size: clamp(45px, 7vw, 80px);
+
+    line-height: 1;
+
+    color: var(--lila);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(98, 84, 115, 0.08);
+
+    background: rgba(255,255,255,0.2);
+}
+
+footer p {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: 22px;
+
+    color: var(--lila);
+
+    margin-bottom: 5px;
+}
+
+footer span {
+    font-size: 13px;
+
+    color: var(--texto-suave);
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.territorio {
+    opacity: 0;
+    transform: translateY(35px);
+}
+
+.territorio.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.45s ease;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .portal {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .territorios {
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+    }
+
+    .territorio {
+        min-height: 320px;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 100svh;
+
+        padding:
+            70px
+            22px
+            90px;
+    }
+
+    .mini-titulo {
+        font-size: 10px;
+
+        letter-spacing: 1.4px;
+
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: clamp(48px, 15vw, 70px);
+
+        line-height: 0.98;
+
+        margin-bottom: 25px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+
+        line-height: 1.5;
+
+        max-width: 330px;
+
+        margin-bottom: 30px;
+    }
+
+    .boton-explorar {
+        padding: 14px 24px;
+
+        font-size: 15px;
+    }
+
+
+    /* =========================
+       PORTAL
+    ========================= */
+
+    .portal {
+        padding:
+            80px
+            18px
+            100px;
+    }
+
+    .titulo-seccion {
+        margin-bottom: 45px;
+
+        gap: 12px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 40px;
+    }
+
+    .titulo-seccion p {
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    /* =========================
+       TARJETAS
+    ========================= */
+
+    .territorios {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .territorio {
+        min-height: 320px;
+
+        padding: 28px;
+
+        border-radius:
+            40% 60% 55% 45% /
+            45% 40% 60% 55%;
+    }
+
+    .numero {
+        top: 24px;
+        left: 26px;
+    }
+
+    .territorio-nube {
+        width: 175px;
+
+        right: -40px;
+        top: 20px;
+    }
+
+    .territorio-texto {
+        max-width: 100%;
+    }
+
+    .territorio h3 {
+        font-size: 30px;
+    }
+
+    .territorio-texto > p:not(.categoria) {
+        font-size: 13px;
+
+        max-width: 270px;
+    }
+
+
+    /* =========================
+       CIERRE
+    ========================= */
+
+    .cierre {
+        min-height: 65vh;
+
+        padding:
+            70px
+            20px;
+    }
+
+    .cierre-nube {
+        width: 270px;
+
+        margin-bottom: -30px;
+    }
+
+    .cierre h2 {
+        font-size: 50px;
+    }
+
+
+    /* =========================
+       NUBES DE FONDO
+    ========================= */
+
+    .nube-1 {
+        width: 200px;
+        left: -90px;
+    }
+
+    .nube-2 {
+        width: 180px;
+        right: -90px;
+    }
+
+    .nube-3 {
+        width: 170px;
+        left: -90px;
+    }
+
+    .nube-4 {
+        width: 220px;
+        right: -100px;
+    }
+}
+
+
+/* =========================
+   CELULAR CHICO
+========================= */
+
+@media (max-width: 380px) {
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .territorio {
+        min-height: 300px;
+
+        padding: 25px;
+    }
+
+    .territorio h3 {
+        font-size: 28px;
+    }
+
+    .cierre h2 {
+        font-size: 43px;
+    }
+}

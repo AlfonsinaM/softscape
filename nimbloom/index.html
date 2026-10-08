@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nimbloom</title>
+
+<link rel="icon" type="image/x-icon" href="img/nimbloom.png">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+
+    overflow: hidden;
+
+    font-family: 'Quicksand', sans-serif;
+
+    color: #655878;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255,255,255,0.95) 0%,
+            rgba(239,228,250,0.75) 25%,
+            rgba(218,202,240,0.6) 50%,
+            transparent 72%
+        ),
+        linear-gradient(
+            180deg,
+            #cfc2e9 0%,
+            #ddd2ed 42%,
+            #eee0e7 72%,
+            #f4dcd3 100%
+        );
+}
+
+
+/* =====================================================
+   FONDO
+   ===================================================== */
+
+.fondo {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* LUCES */
+
+.luz {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.18);
+
+    filter: blur(70px);
+
+    animation: respirar 9s ease-in-out infinite;
+}
+
+.luz1 {
+
+    top: -160px;
+    left: -100px;
+}
+
+.luz2 {
+
+    right: -180px;
+    bottom: -150px;
+
+    width: 500px;
+    height: 500px;
+
+    animation-delay: -4s;
+}
+
+@keyframes respirar {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+        opacity: .65;
+    }
+
+    50% {
+
+        transform: scale(1.12);
+
+        opacity: .95;
+    }
+}
+
+
+/* =====================================================
+   CONTENIDO
+   ===================================================== */
+
+.contenedor {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 900px);
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.logo {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
+
+    color: #806ca1;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   TEXTO "FALTAN"
+   ===================================================== */
+
+.faltan {
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    color: #77678b;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   RELOJ
+   ===================================================== */
+
+.reloj {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+
+.bloque {
+
+    width: 118px;
+
+    padding: 20px 14px 17px;
+
+    background: rgba(255,255,255,.3);
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 35px rgba(111,88,135,.07);
+}
+
+
+.numero {
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    color: #756287;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+}
+
+
+.etiqueta {
+
+    margin-top: 10px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #9383a2;
+}
+
+
+/* DOS PUNTOS */
+
+.punto {
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    color: #9b89ac;
+
+    margin-top: -12px;
+
+    opacity: .75;
+}
+
+
+/* =====================================================
+   FRASE
+   ===================================================== */
+
+.frase {
+
+    max-width: 520px;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    font-weight: 500;
+
+    color: #7d6e8d;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+
+/* =====================================================
+   BOTÓN CALENDARIO
+   ===================================================== */
+
+.calendario {
+
+    margin-top: 22px;
+
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.7);
+
+    background: rgba(255,255,255,.38);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 10px 28px rgba(111,88,135,.10);
+
+    color: #69547c;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    pointer-events: none;
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.calendario.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.calendario:hover {
+
+    background: rgba(255,255,255,.7);
+
+    box-shadow:
+        0 14px 32px rgba(111,88,135,.16);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   ZONA DE NUBES
+   ===================================================== */
+
+.nubes-arrastrables {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   NUBES
+   ===================================================== */
+
+.nube-arrastrable {
+
+    position: absolute;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-user-drag: none;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    pointer-events: auto;
+
+    filter:
+        drop-shadow(
+            0 18px 25px rgba(111, 87, 139, .10)
+        );
+
+    transition:
+        filter .25s ease,
+        opacity .4s ease;
+}
+
+
+/* cuando la agarrás */
+
+.nube-arrastrable.agarrada {
+
+    cursor: grabbing;
+
+    filter:
+        drop-shadow(
+            0 25px 35px rgba(111, 87, 139, .18)
+        );
+
+    transition: none;
+
+    z-index: 2000;
+}
+
+
+/* =====================================================
+   POSICIONES INICIALES
+   ===================================================== */
+
+.nube1 {
+
+    width: 340px;
+
+    left: calc(30% - 170px);
+
+    top: 20%;
+
+    transform: rotate(-7deg);
+
+    z-index: 1001;
+}
+
+
+.nube2 {
+
+    width: 390px;
+
+    left: calc(30% - 140px);
+
+    top: 31%;
+
+    transform: rotate(6deg);
+
+    z-index: 1002;
+}
+
+
+.nube3 {
+
+    width: 350px;
+
+    left: calc(55% - 175px);
+
+    top: 39%;
+
+    transform: rotate(4deg);
+
+    z-index: 1003;
+}
+
+
+.nube4 {
+
+    width: 400px;
+
+    left: calc(47% - 150px);
+
+    top: 17%;
+
+    transform: rotate(-5deg);
+
+    z-index: 1004;
+}
+
+
+.nube5 {
+
+    width: 310px;
+
+    left: calc(70% - 155px);
+
+    top: 36%;
+
+    transform: rotate(2deg);
+
+    z-index: 1005;
+}
+
+
+.nube6 {
+
+    width: 330px;
+
+    left: calc(70% - 190px);
+
+    top: 25%;
+
+    transform: rotate(-4deg);
+
+    z-index: 1006;
+}
+
+
+/* =====================================================
+   INDICACIÓN
+   ===================================================== */
+
+.indicacion {
+
+    position: fixed;
+
+    z-index: 3000;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.35);
+
+    border: 1px solid rgba(255,255,255,.5);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color: #766587;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+
+/* cuando ya movió alguna */
+
+.indicacion.oculta {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(10px);
+}
+
+
+/* =====================================================
+   BOTÓN VOLVER AL UNIVERSO
+   ===================================================== */
+
+.volver-home {
+
+    position: fixed;
+
+    top: 24px;
+
+    left: 24px;
+
+    z-index: 9999;
+
+    padding: 10px 17px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.55);
+
+    border: 1px solid rgba(255,255,255,.7);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 25px rgba(98,84,115,.12);
+
+    color: #624a78;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+
+.volver-home:hover {
+
+    background: rgba(255,255,255,.8);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(98,84,115,.18);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .logo {
+
+        font-size: 12px;
+
+        letter-spacing: 5px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .reloj {
+
+        gap: 5px;
+
+        width: 100%;
+    }
+
+
+    .bloque {
+
+        width: 67px;
+
+        padding: 15px 5px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .numero {
+
+        font-size: 23px;
+    }
+
+
+    .etiqueta {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+
+        margin-top: 8px;
+    }
+
+
+    .punto {
+
+        font-size: 16px;
+    }
+
+
+    .frase {
+
+        font-size: 14px;
+
+        max-width: 310px;
+    }
+
+
+    /* =================================================
+       BOTÓN CALENDARIO EN CELULAR
+       ================================================= */
+
+    .calendario {
+
+        margin-top: 18px;
+
+        padding: 12px 18px;
+
+        font-size: 10px;
+
+        max-width: 260px;
+    }
+
+
+    /* =================================================
+       NUBES EN CELULAR
+       ================================================= */
+
+    .nube1 {
+
+        width: 280px;
+
+        left: calc(20% - 110px);
+
+        top: 40%;
+
+        transform: rotate(-8deg);
+    }
+
+
+    .nube2 {
+
+        width: 300px;
+
+        left: calc(80% - 185px);
+
+        top: 35%;
+
+        transform: rotate(6deg);
+    }
+
+
+    .nube3 {
+
+        width: 250px;
+
+        left: calc(60% - 58px);
+
+        top: 40%;
+
+        transform: rotate(-5deg);
+    }
+
+
+    .nube4 {
+
+        width: 400px;
+
+        left: calc(59% - 145px);
+
+        top: 45%;
+
+        transform: rotate(-7deg);
+    }
+
+
+    .nube5 {
+
+        width: 240px;
+
+        left: calc(58% - 215px);
+
+        top: 50%;
+
+        transform: rotate(8deg);
+    }
+
+
+    .nube6 {
+
+        width: 200px;
+
+        left: calc(60% - 40px);
+
+        top: 48%;
+
+        transform: rotate(-4deg);
+    }
+
+
+    .indicacion {
+
+        bottom: 15px;
+
+        font-size: 10px;
+
+        white-space: nowrap;
+    }
+
+
+    .volver-home {
+
+        top: 14px;
+
+        left: 14px;
+
+        padding: 8px 13px;
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   PANTALLAS MUY CHICAS
+   ===================================================== */
+
+@media (max-width: 390px) {
+
+    .nube1 {
+        width: 210px;
+    }
+
+    .nube2 {
+        width: 225px;
+    }
+
+    .nube3 {
+        width: 205px;
+    }
+
+    .nube4 {
+        width: 235px;
+    }
+
+    .nube5 {
+        width: 195px;
+    }
+
+    .nube6 {
+        width: 210px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BOTÓN VOLVER AL UNIVERSO
+     ===================================================== -->
+
+<a href="../index.html" class="volver-home">
+
+    ← Volver al universo
+
+</a>
+
+
+<!-- =====================================================
+     FONDO
+     ===================================================== -->
+
+<div class="fondo">
+
+    <div class="luz luz1"></div>
+
+    <div class="luz luz2"></div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTENIDO
+     ===================================================== -->
+
+<div class="contenedor">
+
+
+    <div class="logo">
+
+        NIMBLOOM
+
+    </div>
+
+
+    <div class="faltan">
+
+        Faltan
+
+    </div>
+
+
+    <!-- =================================================
+         CUENTA REGRESIVA
+         ================================================= -->
+
+    <div class="reloj">
+
+
+        <div class="bloque">
+
+            <div class="numero" id="dias">
+
+                00
+
+            </div>
+
+            <div class="etiqueta">
+
+                DÍAS
+
+            </div>
+
+        </div>
+
+
+        <div class="punto">
+
+            :
+
+        </div>
+
+
+        <div class="bloque">
+
+            <div class="numero" id="horas">
+
+                00
+
+            </div>
+
+            <div class="etiqueta">
+
+                HORAS
+
+            </div>
+
+        </div>
+
+
+        <div class="punto">
+
+            :
+
+        </div>
+
+
+        <div class="bloque">
+
+            <div class="numero" id="minutos">
+
+                00
+
+            </div>
+
+            <div class="etiqueta">
+
+                MIN
+
+            </div>
+
+        </div>
+
+
+        <div class="punto">
+
+            :
+
+        </div>
+
+
+        <div class="bloque">
+
+            <div class="numero" id="segundos">
+
+                00
+
+            </div>
+
+            <div class="etiqueta">
+
+                SEG
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FRASE -->
+
+    <div class="frase" id="frase">
+
+        Las nubes comienzan a despertar.
+
+    </div>
+
+
+    <!-- =================================================
+         BOTÓN CALENDARIO
+         ================================================= -->
+
+    <button
+        class="calendario"
+        id="calendario"
+        type="button"
+    >
+
+        📅 Guardar Nimbloom en mi calendario
+
+    </button>
+
+
+</div>
+
+
+<!-- =====================================================
+     NUBES ARRASTRABLES
+     ===================================================== -->
+
+<div class="nubes-arrastrables">
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube1"
+        draggable="false"
+        alt=""
+    >
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube2"
+        draggable="false"
+        alt=""
+    >
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube3"
+        draggable="false"
+        alt=""
+    >
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube4"
+        draggable="false"
+        alt=""
+    >
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube5"
+        draggable="false"
+        alt=""
+    >
+
+
+    <img
+        src="img/nube.png"
+        class="nube-arrastrable nube6"
+        draggable="false"
+        alt=""
+    >
+
+
+</div>
+
+
+<!-- =====================================================
+     INDICACIÓN
+     ===================================================== -->
+
+<div class="indicacion" id="indicacion">
+
+    mové las nubes para descubrir lo que hay detrás
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   FECHA DEL EVENTO
+   ===================================================== */
+
+const evento = new Date(
+    2026,
+    10,
+    14,
+    0,
+    0,
+    0
+);
+
+
+/* =====================================================
+   CONTADOR
+   ===================================================== */
+
+function actualizarContador() {
+
+    const ahora = new Date();
+
+    const diferencia = evento - ahora;
+
+
+    /* EVENTO YA LLEGÓ */
+
+    if (diferencia <= 0) {
+
+        document.getElementById("dias").textContent = "00";
+
+        document.getElementById("horas").textContent = "00";
+
+        document.getElementById("minutos").textContent = "00";
+
+        document.getElementById("segundos").textContent = "00";
+
+
+        document.getElementById("frase").textContent =
+            "Nimbloom ha llegado.";
+
+        return;
+    }
+
+
+    /* CALCULAMOS */
+
+    const dias = Math.floor(
+        diferencia / (1000 * 60 * 60 * 24)
+    );
+
+
+    const horas = Math.floor(
+        (diferencia / (1000 * 60 * 60)) % 24
+    );
+
+
+    const minutos = Math.floor(
+        (diferencia / (1000 * 60)) % 60
+    );
+
+
+    const segundos = Math.floor(
+        (diferencia / 1000) % 60
+    );
+
+
+    /* MOSTRAMOS */
+
+    document.getElementById("dias").textContent =
+        String(dias).padStart(2, "0");
+
+
+    document.getElementById("horas").textContent =
+        String(horas).padStart(2, "0");
+
+
+    document.getElementById("minutos").textContent =
+        String(minutos).padStart(2, "0");
+
+
+    document.getElementById("segundos").textContent =
+        String(segundos).padStart(2, "0");
+
+
+    /* FRASES */
+
+    const frase =
+        document.getElementById("frase");
+
+
+    if (dias > 30) {
+
+        frase.textContent =
+            "Las nubes todavía duermen.";
+
+    }
+
+    else if (dias > 20) {
+
+        frase.textContent =
+            "Las nubes comienzan a despertar.";
+
+    }
+
+    else if (dias > 15) {
+
+        frase.textContent =
+            "La energía comienza a reunirse.";
+
+    }
+
+    else if (dias > 10) {
+
+        frase.textContent =
+            "El cielo empieza a florecer.";
+
+    }
+
+    else if (dias > 5) {
+
+        frase.textContent =
+            "Las nubes están cada vez más cerca.";
+
+    }
+
+    else if (dias > 1) {
+
+        frase.textContent =
+            "La energía está a punto de florecer.";
+
+    }
+
+    else if (dias === 1) {
+
+        frase.textContent =
+            "Mañana el cielo va a florecer.";
+
+    }
+
+}
+
+
+/* =====================================================
+   INICIAR CONTADOR
+   ===================================================== */
+
+actualizarContador();
+
+setInterval(
+    actualizarContador,
+    1000
+);
+
+
+/* =====================================================
+   NUBES ARRASTRABLES
+   ===================================================== */
+
+const nubes =
+    document.querySelectorAll(
+        ".nube-arrastrable"
+    );
+
+
+const indicacion =
+    document.getElementById(
+        "indicacion"
+    );
+
+
+const botonCalendario =
+    document.getElementById(
+        "calendario"
+    );
+
+
+let nubesMovidas = 0;
+
+
+/* =====================================================
+   ARRASTRAR NUBES
+   ===================================================== */
+
+nubes.forEach(nube => {
+
+    let moviendo = false;
+
+    let offsetX = 0;
+
+    let offsetY = 0;
+
+
+    nube.addEventListener(
+        "pointerdown",
+        function(e) {
+
+            e.preventDefault();
+
+
+            moviendo = true;
+
+
+            nube.classList.add(
+                "agarrada"
+            );
+
+
+            nube.setPointerCapture(
+                e.pointerId
+            );
+
+
+            const rect =
+                nube.getBoundingClientRect();
+
+
+            offsetX =
+                e.clientX -
+                rect.left;
+
+
+            offsetY =
+                e.clientY -
+                rect.top;
+
+
+            /* La ponemos adelante */
+
+            nube.style.zIndex = 2000;
+
+
+            /* Ocultamos indicación */
+
+            nubesMovidas++;
+
+
+            if (nubesMovidas >= 1) {
+
+                indicacion.classList.add(
+                    "oculta"
+                );
+
+
+                /* =================================
+                   MOSTRAR BOTÓN CALENDARIO
+                   ================================= */
+
+                botonCalendario.classList.add(
+                    "visible"
+                );
+
+            }
+
+        }
+    );
+
+
+    nube.addEventListener(
+        "pointermove",
+        function(e) {
+
+            if (!moviendo) return;
+
+
+            e.preventDefault();
+
+
+            let x =
+                e.clientX -
+                offsetX;
+
+
+            let y =
+                e.clientY -
+                offsetY;
+
+
+            /* Permitimos sacar la nube */
+
+            const margen = 100;
+
+
+            x = Math.max(
+                -nube.offsetWidth + margen,
+
+                Math.min(
+                    window.innerWidth - margen,
+                    x
+                )
+            );
+
+
+            y = Math.max(
+                -nube.offsetHeight + margen,
+
+                Math.min(
+                    window.innerHeight - margen,
+                    y
+                )
+            );
+
+
+            nube.style.left =
+                x + "px";
+
+
+            nube.style.top =
+                y + "px";
+
+
+            /*
+             * Al moverla eliminamos
+             * la posición inicial.
+             */
+
+            nube.style.transform =
+                "rotate(0deg)";
+
+        }
+    );
+
+
+    function soltar() {
+
+        moviendo = false;
+
+        nube.classList.remove(
+            "agarrada"
+        );
+
+    }
+
+
+    nube.addEventListener(
+        "pointerup",
+        soltar
+    );
+
+
+    nube.addEventListener(
+        "pointercancel",
+        soltar
+    );
+
+});
+
+
+/* =====================================================
+   GUARDAR EN CALENDARIO
+   ===================================================== */
+
+botonCalendario.addEventListener(
+    "click",
+    function() {
+
+        /*
+         * Evento:
+         * 14 de noviembre de 2026
+         *
+         * Por ahora la hora es 00:00.
+         * Después podemos cambiarla.
+         */
+
+        const contenidoCalendario =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nimbloom//Softscape//ES
+BEGIN:VEVENT
+UID:nimbloom-2026@softscape
+DTSTAMP:20261001T000000Z
+DTSTART:20261114T000000
+DTEND:20261114T010000
+SUMMARY:Nimbloom
+LOCATION:Sede Fonseca · Facultad de Artes
+DESCRIPTION:Una experiencia de Nimbloom dentro de Softscape.
+END:VEVENT
+END:VCALENDAR`;
+
+
+        const archivo =
+            new Blob(
+                [contenidoCalendario],
+                {
+                    type: "text/calendar;charset=utf-8"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                archivo
+            );
+
+
+        const enlace =
+            document.createElement("a");
+
+
+        enlace.href = url;
+
+        enlace.download =
+            "Nimbloom.ics";
+
+
+        document.body.appendChild(
+            enlace
+        );
+
+
+        enlace.click();
+
+
+        document.body.removeChild(
+            enlace
+        );
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
